@@ -9,16 +9,17 @@ async function bootstrap() {
   const portSwagger = process.env.SWAGGER_PORT;
 
   const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
+    .setTitle('Pokedex')
+    .setDescription('Detalhes dos Pokemons')
     .setVersion('1.0')
-    .addTag('cats')
+    .addTag('Pokedex')
     .build();
 
   try {
     const app = await NestFactory.create(AppModule, { cors: true });
     app.enableCors();
 
+    //Inicia servidor local para API
     await app.listen(port, () => {
       const address = `http://localhost:${port}`;
       logger.log(`Server is running on ${address}`);
@@ -29,7 +30,7 @@ async function bootstrap() {
     const document = SwaggerModule.createDocument(swaggerApp, config);
     SwaggerModule.setup('/docs', swaggerApp, document);
 
-    // Start the Swagger app
+    //Iniciar o Swagger
     await swaggerApp.listen(portSwagger, () => {
       const swaggerAddress = `http://localhost:${portSwagger}`;
       logger.log(`Swagger is running on ${swaggerAddress}/docs`);
