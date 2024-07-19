@@ -6,6 +6,6 @@ export class TeachersService {
     private prisma = new PrismaClient();
 
     async findAll(): Promise<any[]> {
-        return this.prisma.teacher.findMany();
+        return this.prisma.pokemons.findMany();
     }
 }
