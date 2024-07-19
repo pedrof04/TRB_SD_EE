@@ -10,12 +10,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Teacher {
-  name       String   @id
-  city       String
-  createdOn  DateTime @default(now()) @map("created_on")
-  updatedOn  DateTime @updatedAt @map("updated_on")
+// Criacao da tabela na base de dados
+model Pokemons {
+  pokeid       String     @id @default(uuid())
+  num          Int
+  name         String
+  img          String
+  typeid       String     @default(uuid())
+  type         Type       @relation(fields: [typeid], references: [typeid])
+  height       String
+  weight       String
+  candy        String
+  candy_count  Int
+  egg          String
+  spawn_chance Decimal    @db.Decimal(10, 2)
+  avg_spawns   Int
+  spawn_time   String
+  weaknessesid String     @default(uuid())
+  weaknesses   Weaknesses @relation(fields: [weaknessesid], references: [weaknessesid])
 
-  @@map("teachers")
+  createdOn DateTime @default(now()) @map("created_on")
+  updatedOn DateTime @updatedAt @map("updated_on")
 }
 
+model Type {
+  typeid   String     @id @default(uuid())
+  name     String
+  Pokemons Pokemons[]
+}
+
+model Weaknesses {
+  weaknessesid String     @id @default(uuid())
+  name         String
+  Pokemons     Pokemons[]
+}
