@@ -91,8 +91,8 @@ const JSONObserver = {
 
         const query = `
                     INSERT INTO "Pokemons" 
-                    (num, name, img, height, weight, candy, candy_count, egg, spawn_chance, avg_spawns, spawn_time, multipliers, typeid, weaknessesid) 
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+                    (num, name, img, height, weight, candy, candy_count, egg, spawn_chance, avg_spawns, spawn_time, typeid, weaknessesid) 
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
                 `;
 
         const values = [
@@ -108,7 +108,6 @@ const JSONObserver = {
           pokemon.spawn_chance,
           pokemon.avg_spawns,
           pokemon.spawn_time,
-          pokemon.multipliers,
           pokemon.weaknesses,
           typeId,
           weaknessesId,
