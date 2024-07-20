@@ -53,7 +53,6 @@ const JSONObserver = {
         spawn_chance: pokemon.spawn_chance,
         avg_spawns: pokemon.avg_spawns,
         spawn_time: pokemon.spawn_time,
-        multipliers: pokemon.multipliers,
         weaknesses: pokemon.weaknesses,
       }));
 
@@ -92,7 +91,7 @@ const JSONObserver = {
 
         const query = `
                     INSERT INTO "Pokemons" 
-                    (num, name, img, type, height, weight, candy, candy_count, egg, spawn_chance, avg_spawns, spawn_time, multipliers, weaknesses) 
+                    (num, name, img, height, weight, candy, candy_count, egg, spawn_chance, avg_spawns, spawn_time, multipliers, typeid, weaknessesid) 
                     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
                 `;
 
