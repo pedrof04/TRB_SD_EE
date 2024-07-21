@@ -99,7 +99,6 @@ const JSONObserver = {
           pokemon.num,
           pokemon.name,
           pokemon.img,
-          pokemon.type,
           pokemon.height,
           pokemon.weight,
           pokemon.candy,
@@ -108,7 +107,6 @@ const JSONObserver = {
           pokemon.spawn_chance,
           pokemon.avg_spawns,
           pokemon.spawn_time,
-          pokemon.weaknesses,
           typeId,
           weaknessesId,
         ];
