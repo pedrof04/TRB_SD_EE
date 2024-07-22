@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Pokemons" ALTER COLUMN "avg_spawns" SET DATA TYPE DOUBLE PRECISION;

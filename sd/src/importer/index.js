@@ -70,17 +70,17 @@ const JSONObserver = {
     try {
       await client.connect();
       console.log("Connected to the database.");
-      //     const deleteData = `
-      //     DELETE FROM " ";
-      //     DELETE FROM " ";
-      //     DELETE FROM " ";
-      // `;
-      // try {
-      //     await client.query(deleteData);
-      //     console.log(`All data deleted in Movies, Casts and Genres`);
-      // } catch (err) {
-      //     console.error(`Error delete=ing data: ${err}`);
-      // }
+      const deleteData = `
+          DELETE FROM "Pokemons";
+          DELETE FROM "Type";
+          DELETE FROM "Weaknesses";
+      `;
+      try {
+        await client.query(deleteData);
+        console.log(`All data deleted in Pokemons, Type and Weaknesses`);
+      } catch (err) {
+        console.error(`Error delete=ing data: ${err}`);
+      }
 
       for (const pokemon of pokemons) {
         let typeId = await this.getOrInsertTypeId(client, pokemon.type);

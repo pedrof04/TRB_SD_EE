@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Pokemons" ALTER COLUMN "candy_count" DROP NOT NULL,
+ALTER COLUMN "avg_spawns" SET DATA TYPE DOUBLE PRECISION;

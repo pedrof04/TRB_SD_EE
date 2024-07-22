@@ -12,35 +12,35 @@ datasource db {
 
 // Criacao da tabela na base de dados
 model Pokemons {
-  pokeid       String     @id @default(uuid())
-  num          Int
+  pokeid       Int        @id @default(autoincrement())
+  num          Int        @unique
   name         String
   img          String
-  typeid       String     @default(uuid())
+  typeid       Int        @default(autoincrement())
   type         Type       @relation(fields: [typeid], references: [typeid])
   height       String
   weight       String
   candy        String
-  candy_count  Int
+  candy_count  Int?
   egg          String
-  spawn_chance Decimal    @db.Decimal(10, 2)
-  avg_spawns   Int
+  spawn_chance Float
+  avg_spawns   Float
   spawn_time   String
-  weaknessesid String     @default(uuid())
+  weaknessesid Int     @default(autoincrement())
   weaknesses   Weaknesses @relation(fields: [weaknessesid], references: [weaknessesid])
 
-  createdOn DateTime @default(now()) @map("created_on")
-  updatedOn DateTime @updatedAt @map("updated_on")
+  // createdOn DateTime @default(now()) @map("created_on")
+  // updatedOn DateTime @updatedAt @map("updated_on")
 }
 
 model Type {
-  typeid   String     @id @default(uuid())
+  typeid   Int     @id @default(autoincrement())
   name     String
   Pokemons Pokemons[]
 }
 
 model Weaknesses {
-  weaknessesid String     @id @default(uuid())
+  weaknessesid Int     @id @default(autoincrement())
   name         String
   Pokemons     Pokemons[]
 }
